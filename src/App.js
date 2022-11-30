@@ -1,10 +1,12 @@
 import React from 'react';
+import Movies from './components/movies';
 
 function App() {
   return (
-    <div className="App">
-     <h1>Hello to vidly application</h1>
-    </div>
+    <main className="container">
+     <h2> Movie list </h2>
+    <Movies/>
+    </main>
   );
 }
 

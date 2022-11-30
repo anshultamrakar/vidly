@@ -11,8 +11,6 @@ class Counter extends Component {
       this.setState({count : this.state.count + 1})
      }
 
-  
-
     render() { 
         return (
             <div>
@@ -43,4 +41,6 @@ class Counter extends Component {
      }
     }  
 
+
+    
 export default Counter;
