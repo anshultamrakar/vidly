@@ -1,6 +1,5 @@
 ## Vidly application
 
-This project is based on the react course made by [Mosh Hamedani](https://codewithmosh.com/p/mastering-react)
 
 ### Content of this course
 
