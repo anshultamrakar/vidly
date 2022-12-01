@@ -1,36 +1,46 @@
 import React, { Component } from 'react'
-import { getMovie } from '../services/fakeMovieService';
+import {getMovies} from "../services/fakeMovieService"
 
 class Movies extends Component {
     state = { 
-        movies : getMovie()
+        movies : getMovies()
      } 
+     
+     handleDelete = (id) => {
+      const movies = this.state.movies.filter(m => m._id !== id._id)
+      this.setState({movies})
+     }
+
+
     render() { 
+      const {length : count} = this.state.movies.length
+      if(count === 0) return <p>There are no movies in our databases</p>
         return (
             <div>
-               <p>There are 9 movies in the list</p>
-               <table class="table">
-               <thead>
-                 <tr>
-                   <th scope="col">Title</th>
-                   <th scope="col">Genre</th>
-                   <th scope="col">Anshu</th>
-                   <th scope="col">SS</th>
-                 </tr>
-               </thead>
-               <tbody>
+                <p>Showing {count} movies in the databases</p>
+                <table className="table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Stock</th>
+                    <th>Rate</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
                 {this.state.movies.map(movie => (
-                   <tr>
-                   <td>{movie.title}</td>
-                   <td>{movie.genre}</td>
-                   <td>{movie.genre}</td>
-                   <td>{movie.genre}</td>
-               </tr>
+                    <tr key = {movie._id}>
+                    <td>{movie.title}</td>
+                    <td>{movie.genre.name}</td>
+                    <td>{movie.numberInStock}</td>
+                    <td>{movie.dailyRentalRate}</td>
+                    <td><button onClick={() => this.handleDelete(movie)} className='btn btn-danger'>Delete</button></td>
+                    </tr>
                 ))}
-              
-               </tbody>
-             </table>
-            </div>
+                </tbody> 
+                </table>
+            </div> 
         );
     }
 }

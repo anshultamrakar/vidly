@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count : 0,
-        tags : ["tag1", "tag2", "tag3", "tag4"]
+        value : this.props.counter.value,
      } 
 
-   
      handleClick = () => {
-      this.setState({count : this.state.count + 1})
+      this.setState({ value : this.state.value + 1})
      }
 
     render() { 
@@ -16,27 +14,19 @@ class Counter extends Component {
             <div>
                <span  style = {{marginLeft : "2rem"}} className = {this.getBadgeClass()} >{this.formatCount()}</span>
                <button onClick = {() => this.handleClick()} className='btn btn-primary m-4'>Increment</button>
-                {this.renderTags()} 
+               <button  onClick = {() => this.props.onDelete(this.props.counter.id)} className = "btn btn-danger">Delete</button>
             </div>
         );
     }
 
-    renderTags(){
-        if(this.state.tags.length === 0){
-           return <p>There are no tags</p>
-        }else{
-           return <ul>{this.state.tags.map(tag => <li key = {tag}>{tag}</li>)}</ul>
-        }
-    }
-
     formatCount(){
-        const  { count }  = this.state;
-        return count === 0 ? "Zero" : count
+        const  { value }  = this.state;
+        return value === 0 ? "Zero" : value
      }
 
      getBadgeClass(){
         let classes = "btn btn-"
-         classes += this.state.count === 0 ? "primary" : "warning"
+         classes += this.state.value === 0 ? "primary" : "warning"
          return classes;
      }
     }  
