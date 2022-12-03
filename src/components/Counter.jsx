@@ -13,20 +13,20 @@ class Counter extends Component {
         return (
             <div>
                <span  style = {{marginLeft : "2rem"}} className = {this.getBadgeClass()} >{this.formatCount()}</span>
-               <button onClick = {() => this.handleClick()} className='btn btn-primary m-4'>Increment</button>
+               <button onClick = {() => this.props.onIncrement(this.props.counter)} className='btn btn-primary m-4'>Increment</button>
                <button  onClick = {() => this.props.onDelete(this.props.counter.id)} className = "btn btn-danger">Delete</button>
             </div>
         );
     }
 
     formatCount(){
-        const  { value }  = this.state;
+        const  { value }  = this.props.counter;
         return value === 0 ? "Zero" : value
      }
 
      getBadgeClass(){
         let classes = "btn btn-"
-         classes += this.state.value === 0 ? "primary" : "warning"
+         classes += this.props.counter === 0 ? "primary" : "warning"
          return classes;
      }
     }  
