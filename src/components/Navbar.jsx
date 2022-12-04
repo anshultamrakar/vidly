@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-class Navbar extends Component {
-    state = {  } 
-    render() { 
-        return (
-            <main className='container'>
-              <h2>Navbar</h2>
-            </main>
-        );
-    }
+const Navbar = ({totalLength}) => {
+    return (
+        <nav>
+          <h2>{totalLength}</h2>
+        </nav>
+    );
 }
- 
+
 export default Navbar;
