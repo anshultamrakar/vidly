@@ -1,17 +1,6 @@
 ## Vidly application
 
 
-### Content of this course
-
-* Creating reusable react component
-* Learning Lifecycle hooks
-* Paginating, filtering, sorting
-* Routing
-* Forms and their validation
-* Calling backends services - Axios used for this project
-* Authentification & Authorization
-* Deployment
-
 ### Login in the app
 
 | Type          | username      | password  |
