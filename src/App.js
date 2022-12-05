@@ -33,14 +33,17 @@ class App extends Component {
  }
 
 
+
  handleDelete = (counterId) => {
- const counters = this.state.counters.filter(c => c.id !== counterId)
- this.setState({counters})
+  const counters = this.state.counters.filter(c => c.id !== counterId)
+  this.setState({counters})
  }
 
- render(){
+
+
+ render(){ 
   return (
-    <>
+    <React.Fragment>
       <Navbar totalLength = {this.state.counters.length}/>
       <main className="container">
       <Counters 
@@ -49,7 +52,7 @@ class App extends Component {
       onIncrement = {this.handleIncrement} 
       onDelete = {this.handleDelete}/>
      </main>
-    </>
+    </React.Fragment>
   );
  }
 }

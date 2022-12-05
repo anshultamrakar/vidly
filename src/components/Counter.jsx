@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 class Counter extends Component {
   
     render() { 
-     console.log(this.props)
         return (
             <div>
                 <span className= {this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={() => this.props.onIncrement(this.props.counter)}  className='btn btn-primary m-4'>Increment</button>
-                <button onClick={() => this.props.onDelete(this.props.counter.id)}  className='btn btn-danger m-2'>Delete</button>
+                <button onClick={() => this.props.onIncrement(this.props.counter)}  className='btn btn-primary m-4'>+</button>
+                <button onClick={() => this.props.onSubtract(this.props.counter)}  className='btn btn-primary m-2'> - </button>
+                <button onClick={() => this.props.onDelete(this.props.counter.id)}  className='btn btn-danger m-2'> X </button>
             </div>
         );
     }

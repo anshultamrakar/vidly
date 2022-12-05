@@ -2,8 +2,9 @@ import React from 'react';
 
 const Navbar = ({totalLength}) => {
     return (
-        <nav>
-          <h2>{totalLength}</h2>
+            <nav className ="navbar navbar-expand-lg navbar-light bg-light">
+             <a className ="navbar-brand" href="#"> <h2> Navbar {totalLength}</h2>
+            </a>
         </nav>
     );
 }
