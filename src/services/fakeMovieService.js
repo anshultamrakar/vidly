@@ -67,6 +67,8 @@ const movies = [
   }
 ];
 
+
+
 export function getMovies() {
   return movies;
 }
