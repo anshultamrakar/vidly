@@ -8,10 +8,11 @@ import './index.css';
 // import Movies from './Components/Movies';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
-import App from './App';
+// import App from './App';
+import LoginForm from './Components/LoginForm'
 
 
 ReactDOM.render(
-  <App />,
+  <LoginForm />,
   document.getElementById('root')
 );

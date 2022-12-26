@@ -41,7 +41,7 @@ handleDelete = (id) => {
   render() { 
     return (
       <> 
-      <NavBar totalLength = {this.state.counters.filter(c => c.value > 0 ).length}/>
+      <NavBar totalLength = {this.state.counters.length}/>
       <main className='container'>
         <Counters 
         counters = {this.state.counters}
