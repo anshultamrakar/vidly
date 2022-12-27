@@ -7,6 +7,7 @@ class LoginForm extends Component {
    }
 
 
+ 
   validate = () => {
     const error = {}
     if(this.state.account.username.trim() === ""){
@@ -19,11 +20,15 @@ class LoginForm extends Component {
   }
   
 
+  validateProperty  = () => {
+    
+  }
+
+
 
     handleSubmit = (e) => {
       e.preventDefault()
-     const error = this.validate();
-     console.log(error)
+      const error = this.validate();
       this.setState({error})
       if(error) return
       // Call the server
@@ -32,13 +37,17 @@ class LoginForm extends Component {
 
 
     handleChange = (e) => {
+
+      if(errorMessage){
+        error[e.target.name] = errorMessage
+      }else{
+        delete error[e.target.name]
+      }
       const account = {...this.state.account}
       account[e.target.name]= e.target.value
       this.setState({account})
     } 
-
-
-
+    
     render() { 
         return (
             <div>
@@ -51,8 +60,10 @@ class LoginForm extends Component {
             type = "text" 
             name = "username"
             onChange={this.handleChange}
+            
             value = {this.state.account.username} 
             className='form-control' placeholder='Enter username' />
+           { this.state.error && <div className='alert alert-danger'>{this.state.error.username}</div>} 
           </div>
           <div className ="form-group">
             <label htmlFor ="password">Password</label>
@@ -63,6 +74,7 @@ class LoginForm extends Component {
             onChange = {this.handleChange}
             placeholder='Enter password' 
             className='form-control' />
+             { this.state.error && <div className='alert alert-danger'>{this.state.error.password}</div>} 
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
